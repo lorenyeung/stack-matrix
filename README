@@ -1,0 +1,17 @@
+given a NxN matrix, determine if there is a path from the top left corner to the bottom right. negative (-1) squares denote walls, and positive (1) squares denote a path.
+
+Path = yes
+M[5][5] = 
+{{ 1, 1, 1, -1, 1}, 
+{-1, 1, 1, -1, -1}, 
+{ 1, 1, 1, -1, 1}, 
+{-1, 1, 1, 1, 1}, 
+{ 1, 1, -1, 1, 1}}
+
+Path = no
+arr[5][5] = 
+{{ 1, 1, 1, -1, 1}, 
+{-1, 1, 1, -1, -1}, 
+{ 1, 1, 1, -1, 1}, 
+{-1, 1, -1, 1, 1}, 
+{ 1, 1, -1, 1, 1}} 
