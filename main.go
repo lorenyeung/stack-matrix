@@ -1,7 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"time"
+
+	"github.com/julienroland/usg"
 
 	"github.com/lorenyeung/stack-matrix/stack"
 	log "github.com/sirupsen/logrus"
@@ -18,6 +21,7 @@ func main() {
 		{1, 1, 1, -1, 1},
 		{-1, 1, 1, 1, 1},
 		{1, 1, -1, 1, 1}}
+	printProblem(size, m)
 	findPath(size, m)
 	duration := time.Since(start)
 	log.Info("runtime:", duration)
@@ -72,13 +76,27 @@ func findPath(size int, m Matrix) {
 func printDirection(dir int) string {
 	switch dir {
 	case 0:
-		return ">"
+		return usg.Get.ArrowRight
 	case 1:
-		return "v"
+		return usg.Get.ArrowDown
 	case 2:
-		return "<"
+		return usg.Get.ArrowLeft
 	case 3:
-		return "^"
+		return usg.Get.ArrowRight
 	}
 	return ""
+}
+
+func printProblem(size int, m Matrix) {
+
+	for _, v := range m {
+		for _, w := range v {
+			if w == -1 {
+				fmt.Print(usg.Get.SquareSmallFilled)
+			} else {
+				fmt.Print(usg.Get.SquareSmall)
+			}
+		}
+		fmt.Println()
+	}
 }
